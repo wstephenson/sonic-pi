@@ -99,6 +99,9 @@ app/server/rb-native/
 **/vendor/ffi-*/ext/ffi_c/libffi*/
 **/vendor/**/build/
 
+# Bundled gems
+vendor
+
 ## Book
 
 book/
@@ -109,5 +112,5 @@ book/
 
 ## i18n auto-generated files
 
-etc/doc/lang/sonic-pi-tutorial.pot
-etc/doc/generated/
+share/doc/lang/sonic-pi-tutorial.pot
+share/doc/generated/
