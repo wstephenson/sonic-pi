@@ -17,14 +17,7 @@
 raise "Sonic Pi requires Ruby 2+ to be installed. You are using version #{RUBY_VERSION}" if RUBY_VERSION < "2"
 
 ## Ensure native lib dir is available
-require 'rbconfig'
 ruby_api = RbConfig::CONFIG['ruby_version']
-
-
-## Ensure all libs in vendor directory are available
-Dir["#{File.expand_path("../vendor", __FILE__)}/*/lib/"].each do |vendor_lib|
-  $:.unshift vendor_lib
-end
 
 begin
   require 'did_you_mean'
@@ -34,6 +27,7 @@ end
 
 require 'hamster/vector'
 require 'wavefile'
+require 'memoist'
 
 os = case RUBY_PLATFORM
      when /.*arm.*-linux.*/
@@ -147,7 +141,7 @@ module SonicPi
   module Core
     module SPRand
       # Read in same random numbers as server for random stream sync
-      @@random_numbers = ::WaveFile::Reader.new(File.expand_path("../../../../etc/buffers/rand-stream.wav", __FILE__), ::WaveFile::Format.new(:mono, :float, 44100)).read(441000).samples.freeze
+      @@random_numbers = WaveFile::Reader.new(File.expand_path("../../../../etc/buffers/rand-stream.wav", __FILE__), WaveFile::Format.new(:mono, :float, 44100)).read(441000).samples.freeze
 
       def self.tl_seed_map(seed, idx=0)
         {:sonic_pi_spider_random_gen_seed => seed,

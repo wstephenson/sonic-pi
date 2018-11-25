@@ -13,8 +13,7 @@
 #++
 
 require 'cgi'
-require 'rbconfig'
-
+require 'bundler/setup'
 
 require_relative "../core.rb"
 require_relative "../lib/sonicpi/studio"
@@ -28,9 +27,6 @@ require_relative "../lib/sonicpi/lang/midi"
 require_relative "../lib/sonicpi/lang/sound"
 #require_relative "../lib/sonicpi/lang/pattern"
 require_relative "../lib/sonicpi/runtime"
-
-require 'multi_json'
-require 'memoist'
 
 STDOUT.puts "Sonic Pi server booting..."
 
