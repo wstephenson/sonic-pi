@@ -244,7 +244,8 @@ private:
     QString tooltipStrShiftMeta(char key, QString str);
     QString tooltipStrMeta(char key, QString str);
     QString readFile(QString name);
-    QString rootPath();
+    QString rootPath() const;
+    QString serverBinPath() const;
 
     void addUniversalCopyShortcuts(QTextEdit *te);
 
