@@ -15,20 +15,22 @@
 require 'cgi'
 require 'optparse'
 require 'fileutils'
+require 'bundler/setup'
 
-require_relative "../core.rb"
-require_relative "../lib/sonicpi/synths/synthinfo"
-require_relative "../lib/sonicpi/util"
-require_relative "../lib/sonicpi/runtime"
-require_relative "../lib/sonicpi/lang/core"
-require_relative "../lib/sonicpi/lang/sound"
-require_relative "../lib/sonicpi/lang/minecraftpi"
-require_relative "../lib/sonicpi/lang/midi"
+require_relative "../lib/types.rb"
+require_relative "../server/lib/sonicpi/synths/synthinfo"
+require_relative "../server/lib/sonicpi/util"
+require_relative "../server/lib/sonicpi/runtime"
+require_relative "../server/lib/sonicpi/lang/core"
+require_relative "../server/lib/sonicpi/lang/sound"
+require_relative "../server/lib/sonicpi/lang/minecraftpi"
+require_relative "../server/lib/sonicpi/lang/midi"
 
 require 'active_support/inflector'
 
-
 include SonicPi::Util
+
+raise if qt_gui_path.nil?
 
 FileUtils::rm_rf "#{qt_gui_path}/help/"
 FileUtils::mkdir "#{qt_gui_path}/help/"

@@ -12,6 +12,9 @@
 # notice is included.
 #++
 
+require 'hamster'
+require 'wavefile'
+
 module SonicPi
   module Core
     class ThreadLocal
@@ -84,7 +87,7 @@ module SonicPi
   module Core
     module SPRand
       # Read in same random numbers as server for random stream sync
-      @@random_numbers = ::WaveFile::Reader.new(File.expand_path("../../../../etc/buffers/rand-stream.wav", __FILE__), ::WaveFile::Format.new(:mono, :float, 44100)).read(441000).samples.freeze
+      @@random_numbers = ::WaveFile::Reader.new(File.expand_path("../../share/buffers/rand-stream.wav", __FILE__), ::WaveFile::Format.new(:mono, :float, 44100)).read(441000).samples.freeze
 
       def self.tl_seed_map(seed, idx=0)
         {:sonic_pi_spider_random_gen_seed => seed,
