@@ -216,11 +216,11 @@ module SonicPi
     end
 
     def root_path
-      File.absolute_path("#{File.dirname(__FILE__)}/../../../../../")
+      File.absolute_path("#{File.dirname(__FILE__)}/../../../")
     end
 
     def etc_path
-      File.absolute_path("#{root_path}/etc")
+      File.absolute_path("#{root_path}/share")
     end
 
     def snippets_path
@@ -264,7 +264,7 @@ module SonicPi
     end
 
     def qt_gui_path
-      File.absolute_path("#{app_path}/gui/qt")
+      File.absolute_path("#{root_path}/gui")
     end
 
     def examples_path
