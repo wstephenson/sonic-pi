@@ -23,5 +23,6 @@ macro(add_erlang)
   endif(ERLANG_ERLC)
 endmacro(add_erlang)
 
-add_erlang(osc)
-add_erlang(pi_server)
+add_erlang(osc pi_server)
+
+install(FILES ${ERLANG_OUTPUT_FILES} DESTINATION ${CMAKE_INSTALL_LIBEXECDIR})
