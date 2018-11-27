@@ -34,3 +34,5 @@ add_executable(sonic-pi ${sonicpi_SRCS} ${sonicpi_RESOURCES})
 
 include_directories(${QWT_INCLUDE_DIRS} ${QSCINTILLA2_INCLUDE_DIRS} ${CMAKE_SOURCE_DIR}/gui)
 target_link_libraries(sonic-pi Threads::Threads Qt5::Core Qt5::Gui Qt5::Network Qt5::Concurrent Qt5::OpenGL Qt5::Widgets rt ${QSCINTILLA2_LIBRARIES} ${QWT_LIBRARIES})
+
+install(PROGRAMS sonic-pi DESTINATION ${CMAKE_INSTALL_BINDIR})
