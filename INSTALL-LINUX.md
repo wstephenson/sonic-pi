@@ -66,6 +66,15 @@ First, we need to download the source code to a reasonable location. You can do 
 
 ### Building Sonic Pi
 
+### CMake Build System (WIP)
+
+1) install dependencies
+
+2) run cmake, setting install locations by defining the following CMake variables on the command line if you intend to 'make install'
+cmake -DCMAKE_INSTALL_DATAROOTDIR=/usr/local/share/sonic-pi -DCMAKE_INSTALL_DOCDIR=/usr/local/share/doc/packages/sonic-pi .
+
+### Legacy build system
+
 There's a bash script file called `/app/gui/qt/build-debian-app`, which is an install script to help assist in installing dependecies and building Sonic Pi. It's been tested with Sonic Pi v3.1 (as of the time of writing), it may or may not work with other versions. You can run it by typing these commands into the terminal:
 ````
 cd app/gui/qt/
